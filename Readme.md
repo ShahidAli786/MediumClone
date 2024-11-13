@@ -1,4 +1,4 @@
-# Medium Clone
+# Medium Clone App
 
 This repository contains two main projects:
 
