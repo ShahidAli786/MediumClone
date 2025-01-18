@@ -291,3 +291,19 @@ export async function editProfileApi(authorId: string, data: any) {
     console.error("Error updating profile:", error);
   }
 }
+
+export async function uploadPostImage(file: any) {
+  try {
+    // Step 1: Upload the image to Sanity
+    const imageAsset = await client.assets.upload("image", file, {
+      filename: "postimage",
+    });
+    console.log("Image uploaded successfully:", imageAsset);
+    // Step 2: Get the URL of the uploaded image
+    const imageUrl = urlFor(imageAsset).url();
+    return imageUrl;
+  } catch (error) {
+    console.error("Error uploading image or updating post:", error);
+    throw error;
+  }
+}

@@ -24,17 +24,8 @@ export default function ProfileHeader({ scrollY }: ProfileHeaderProps) {
     invalidate();
   });
 
-  const stylez = useAnimatedStyle(() => {
-    return {
-      transform: [
-        {
-          translateY: interpolate(scrollY.value, [0, 100], [0, -100]),
-        },
-      ],
-    };
-  });
   return (
-    <Animated.View style={[styles.container, stylez]}>
+    <Animated.View style={[styles.container]}>
       <Link href="/(auth)/Settings" style={styles.settingIcon}>
         <Ionicons name="settings-outline" size={24} color="black" />
       </Link>
